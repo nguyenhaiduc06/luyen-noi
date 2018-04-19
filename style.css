@@ -10,7 +10,6 @@ body{
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     align-content: space-evenly;
     justify-content: space-evenly;
