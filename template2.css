@@ -8,22 +8,45 @@ body {
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
     height: 100vh;
-    background: #FF5F6D;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #ecb669, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #ecb669, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #ff5f6d; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to left,
+        #ecb669,
+        #ff5f6d
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to left,
+        #ecb669,
+        #ff5f6d
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .wrapper {
     display: grid;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
     align-items: center;
     justify-items: center;
+    justify-content: stretch;
 }
-.text{
+.text {
     font-family: handwrite;
-    font-size: 72px;
+    font-size: 128px;
     text-align: center;
     color: rgba(0, 0, 0, 0.75);
+    grid-row: 2 / 3;
+}
+.button {
+    text-align: center;
+    grid-row: 3 / 4;
+}
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row: 4 / 5;
+}
+.fas {
+    color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
