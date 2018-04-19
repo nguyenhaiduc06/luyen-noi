@@ -12,11 +12,11 @@ body {
 
     background: #ff5f6d; /* fallback for old browsers */
     background: -webkit-linear-gradient(
-        to left,
+        to top left,
         #ecb669,
         #ff5f6d
     ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #ecb669, #ff5f6d);
+    background: linear-gradient(to top left, #ecb669, #ff5f6d);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .wrapper {
@@ -24,6 +24,54 @@ body {
     grid-row: 2 / 3;
     display: grid;
     grid-template-rows: 1fr 2fr 2fr 2fr;
+}
+.container{
+    grid-row: 1 / 2;
+
+    width: 100%;
+
+}
+.progressbar{
+    counter-reset: step;
+}
+.progressbar li{
+    list-style-type: none;
+    float: left;
+    width: 20%;
+    position: relative;
+    text-align: center;
+}
+.progressbar li::before{
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.progressbar li::after{
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.4);
+    top: 15px;
+    left: -45%;
+    z-index: -1;
+}
+.progressbar li:first-child::after{
+    content: none;
+}
+.progressbar li.active::before{
+    background-color: rgba(46, 216, 40, 0.9);
+}
+.progressbar li{
+    font-family: monospace;
+    color: #fff;
 }
 .text {
     grid-row: 2 / 3;
