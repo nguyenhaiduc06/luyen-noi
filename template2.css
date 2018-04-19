@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'handwrite';
+    src: url('font.ttf');
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 10fr 1fr;
+    height: 100vh;
+    background: #FF5F6D;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ecb669, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ecb669, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.wrapper {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.text{
+    font-family: handwrite;
+    font-size: 72px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.75);
+}
