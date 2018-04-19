@@ -37,7 +37,7 @@ body {
     transition: 200ms;
 }
 .item:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
 }
 .top {
     grid-column: 2 / 3;
