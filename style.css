@@ -42,7 +42,6 @@ body {
 .top {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    max-width: 100%;
 }
 .bottom {
     grid-column: 2 / 3;
@@ -52,4 +51,7 @@ body {
 .title {
     font-size: 36px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.item > img{    
+    max-width: 100%;
 }
