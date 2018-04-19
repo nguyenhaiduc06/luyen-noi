@@ -7,7 +7,6 @@ window.onload = function() {
     const back = document.querySelector('.back');
     const text = document.querySelector('.text');
     const modal = document.querySelector('#simpleModal');
-    const closeBtn = document.querySelector('.closeBtn');
 
     button.addEventListener('click', function() {
         button.classList.toggle('fa-microphone');
@@ -45,20 +44,7 @@ window.onload = function() {
     steps[questionCount].classList.toggle('active');
     text.innerHTML = questions[questionCount];
 
-    closeBtn.addEventListener('click', closeModal);
-    window.addEventListener('click', outsideClick);
-
     function openModal() {
         modal.style.display = 'block';
-    }
-
-    function closeModal() {
-        modal.style.display = 'none';
-    }
-
-    function outsideClick(e) {
-        if (e.target == modal) {
-            modal.style.display = 'none';
-        }
     }
 };

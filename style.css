@@ -1,4 +1,10 @@
+html {
+    padding: 0;
+    font-family: 'Maven Pro', sans-serif;
+}
+
 body {
+    margin: 0;
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
@@ -11,6 +17,26 @@ body {
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom right, #fdbb2d, #22c1c3);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.nav {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+    background: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 15fr;
+    justify-items: stretch;
+    align-items: stretch;
+}
+.nav-item {
+    padding-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-item:hover {
+    background-color: #ddd;
 }
 .wrapper {
     display: grid;
