@@ -1,6 +1,6 @@
 window.onload = function() {
     let questionCount = 0;
-    let questions = ['lung linh', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
+    let questions = ['ăn kĩ no lâu, cày sâu tốt lúa', 'nón lá', 'lúa nếp', 'nước lũ', 'nên làm'];
     let result = false;
     let resultInPercent = [0, 0, 0, 0, 0];
     let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
