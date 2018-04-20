@@ -12,16 +12,16 @@
 
 <body>
     <div class="nav">
-        <a class="nav-item">
+        <div class="nav-item">
             <p>Trang chủ</p>
-        </a>
-        <a class="nav-item" href="courses.html">
+        </div>
+        <div class="nav-item">
             <p>Luyện nói</p>
-        </a>
+        </div>
     </div>
     <div class="wrapper">
         <div class="item">
-            <img src="viet.jpg" class="top">
+            <img src="viet.jpg" class="top" onclick="navigateTo('viet/lists.html')">
             <div class="bottom title">Tiếng Việt</div>
         </div>
         <div class="item">
@@ -45,6 +45,11 @@
             <div class="bottom title">Tiếng Hàn</div>
         </div>
     </div>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 
 </html>
