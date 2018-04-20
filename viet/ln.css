@@ -26,25 +26,31 @@ body {
     background: linear-gradient(to top left, #ecb669, #ff5f6d);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+/*Navigator*/
 .nav {
-    grid-row: 1 / 2;
-    grid-column: 1 / 4;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: #fff;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-    height: 50px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 15fr;
-    justify-items: stretch;
-    align-items: stretch;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
-.nav-item {
-    padding-left: 10px;
-    cursor: pointer;
+.nav > li {
+    float: left;
+    padding: 10px;
 }
-.nav-item:hover {
-    background-color: #ddd;
+.nav > li:hover {
+    background: #eee;
 }
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 22px;
+}
+/*End naviagtor*/
 .wrapper {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -115,10 +121,10 @@ body {
     font-size: 128px;
     text-align: center;
 }
-.true{
+.true {
     color: rgba(46, 216, 40, 0.7);
 }
-.false{
+.false {
     color: rgba(216, 40, 40, 0.9);
 }
 .controls {
@@ -198,11 +204,9 @@ body {
 .home {
     border-bottom-left-radius: 10px;
 }
-
 .continue {
     border-bottom-right-radius: 10px;
 }
-
 @keyframes modalopen {
     from {
         opacity: 0;
@@ -228,9 +232,9 @@ th {
 tr:hover {
     background-color: #ddd;
 }
-th:first-child{
+th:first-child {
     border-top-left-radius: 10px;
 }
-th:nth-child(2){
+th:nth-child(2) {
     border-top-right-radius: 10px;
 }
