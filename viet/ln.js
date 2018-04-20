@@ -1,6 +1,7 @@
 window.onload = function() {
     let questionCount = 0;
     let questions = ['lung linh', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
+    const percentToCompare = [98,97,92];
     let result = false;
     let resultInPercent = [0, 0, 0, 0, 0];
     let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
@@ -26,7 +27,7 @@ window.onload = function() {
                 if (transcript.toLowerCase() == questions[questionCount].toLowerCase()) {
                     reg.stop();
                     if (
-                        (event.results[i][0].confidence * 100).toFixed(2) >= 96
+                        (event.results[i][0].confidence * 100).toFixed(2) >= percentToCompare[questionCount]
                     ) {
                         result = true;
                         resultInPercent[questionCount] = (
