@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,14 +15,17 @@
 </head>
 
 <body>
-    <div class="nav">
-        <div class="nav-item">
-            <p>Trang chủ</p>
-        </div>
-        <div class="nav-item" onclick="navigateTo('../courses.html')">
-            <p>Luyện nói</p>
-        </div>
-    </div>
+    <ul class="nav">
+        <li>
+            <a href="">Trang chủ</a>
+        </li>
+        <li>
+            <a href="../courses.html">Luyện nói</a>
+        </li>
+        <li>
+            <a href="train.html">Training mode</a>
+        </li>
+    </ul>
     <div class="wrapper">
         <div class="container">
             <ul class="progressbar">
@@ -46,8 +49,12 @@
             </div>
         </div>
         <div class="train">
-            <div class="train-item trainCorrect"><i class="fas fa-check"></i></div>
-            <div class="train-item trainWrong"><i class="fas fa-times"></i></div>
+            <div class="train-item trainCorrect">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="train-item trainWrong">
+                <i class="fas fa-times"></i>
+            </div>
         </div>
     </div>
 
