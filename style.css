@@ -1,43 +1,44 @@
 html {
     padding: 0;
     font-family: 'Maven Pro', sans-serif;
+    color: rgba(0, 0, 0, 0.75);
 }
-
 body {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
     height: 100vh;
-    background: #22c1c3; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to bottom right,
-        #fdbb2d,
-        #22c1c3
-    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: #22c1c3;
+    background: -webkit-linear-gradient(to bottom right, #fdbb2d, #22c1c3);
     background: linear-gradient(to bottom right, #fdbb2d, #22c1c3);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+/*Navigator*/
 .nav {
-    grid-row: 1 / 2;
-    grid-column: 1 / 4;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: #fff;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-    height: 50px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 15fr;
-    justify-items: stretch;
-    align-items: stretch;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
-.nav-item {
-    padding-left: 10px;
-    cursor: pointer;
+.nav > li {
+    float: left;
+    padding: 10px;
+}
+.nav > li:hover {
+    background: #eee;
+}
+a {
     text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 22px;
 }
-.nav-item:hover {
-    background-color: #ddd;
-}
+/*End naviagtor*/
+/*Wrapper*/
 .wrapper {
     display: grid;
     grid-column-start: 2;
@@ -78,3 +79,4 @@ body {
 .item > img {
     max-width: 100%;
 }
+/*End wrapper*/
