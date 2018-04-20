@@ -76,7 +76,7 @@ body {
     margin: 0 auto 10px auto;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.4);
-    transition: 100ms;
+    transition: 200ms;
 }
 .progressbar li::after {
     content: '';
