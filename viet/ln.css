@@ -76,6 +76,7 @@ body {
     margin: 0 auto 10px auto;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.4);
+    transition: 100ms;
 }
 .progressbar li::after {
     content: '';
@@ -83,7 +84,7 @@ body {
     width: 100%;
     height: 2px;
     background: rgba(0, 0, 0, 0.4);
-    /* top: 15px; */
+    top: 45px;
     left: -50%;
     z-index: -1;
 }
@@ -91,8 +92,12 @@ body {
     content: none;
 }
 .progressbar li.active::before {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: rgba(0, 0, 0, 0.9)
+    /* background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.9) */
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: -10px;
 }
 .progressbar li.danger::before {
     background-color: rgba(216, 40, 40, 0.9);
@@ -222,4 +227,10 @@ th {
 }
 tr:hover {
     background-color: #ddd;
+}
+th:first-child{
+    border-top-left-radius: 10px;
+}
+th:nth-child(2){
+    border-top-right-radius: 10px;
 }

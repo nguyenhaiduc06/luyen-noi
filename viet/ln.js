@@ -2,12 +2,14 @@ window.onload = function() {
     let questionCount = 0;
     let questions = ['lung linh', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
     let result = false;
+    let resultInPercent = [0, 0, 0, 0, 0];
     const button = document.querySelector('#button');
     const steps = document.querySelectorAll('li');
     const next = document.querySelector('.next');
     const back = document.querySelector('.back');
     const text = document.querySelector('.text');
     const modal = document.querySelector('#simpleModal');
+    const tds = document.querySelectorAll('.percent');
     const reg = new webkitSpeechRecognition();
     reg.continuous = true;
     reg.interimResults = true;
@@ -16,7 +18,6 @@ window.onload = function() {
         console.log(event);
         var interimTranscripts = '';
         for (var i = event.resultIndex; i < event.results.length; i++) {
-            // chạy khi kết quả trả về chưa phải là kết quả chính xác nhất
             var transcript = event.results[i][0].transcript;
             if (event.results[i].isFinal) {
                 console.log(transcript);
@@ -27,13 +28,22 @@ window.onload = function() {
                         (event.results[i][0].confidence * 100).toFixed(2) >= 96
                     ) {
                         result = true;
+                        resultInPercent[questionCount] = (
+                            event.results[i][0].confidence * 100
+                        ).toFixed(2);
                     } else {
                         result = false;
+                        resultInPercent[questionCount] = (
+                            event.results[i][0].confidence * 100
+                        ).toFixed(2);
                     }
                     break;
                 } else {
                     reg.stop();
                     result = false;
+                    resultInPercent[questionCount] = (
+                        event.results[i][0].confidence * 100
+                    ).toFixed(2);
                 }
             }
         }
@@ -43,11 +53,11 @@ window.onload = function() {
         if (result == true) {
             returnToOrginalState();
             text.classList.add('true');
-            steps[questionCount].classList.toggle('success');
+            steps[questionCount].classList.add('success');
         } else {
             returnToOrginalState();
             text.classList.add('false');
-            steps[questionCount].classList.toggle('danger');
+            steps[questionCount].classList.add('danger');
         }
     };
 
@@ -69,8 +79,10 @@ window.onload = function() {
 
     function nextQuestion() {
         if (questionCount < 4) {
+            text.classList.remove('true');
+            text.classList.remove('false');
+            steps[questionCount].classList.remove('active');
             questionCount++;
-            returnToOrginalState();
             steps[questionCount].classList.add('active');
             text.innerHTML = questions[questionCount];
         } else {
@@ -79,8 +91,10 @@ window.onload = function() {
     }
 
     function preQuestion() {
+        text.classList.remove('true');
+        text.classList.remove('false');
+        steps[questionCount].classList.remove('active');
         questionCount--;
-        returnToOrginalState();
         steps[questionCount].classList.add('active');
         text.innerHTML = questions[questionCount];
     }
@@ -89,6 +103,9 @@ window.onload = function() {
     text.innerHTML = questions[questionCount];
 
     function openModal() {
+        for (let i = 0; i < 5; i++) {
+            tds[i].innerHTML = resultInPercent[i] + '%';
+        }
         modal.style.display = 'block';
     }
 
@@ -97,7 +114,6 @@ window.onload = function() {
         button.classList.remove('fa-spinner');
         button.classList.remove('fa-pulse');
         button.classList.add('fa-microphone');
-        steps[questionCount].classList.remove('active');
         steps[questionCount].classList.remove('success');
         steps[questionCount].classList.remove('danger');
         text.classList.remove('true');

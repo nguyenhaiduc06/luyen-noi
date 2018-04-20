@@ -59,32 +59,32 @@
                         <th>Mức độ đúng</th>
                     </tr>
                     <tr>
-                        <td>cau1</td>
-                        <td>cau2</td>
+                        <td>lung linh</td>
+                        <td class="percent"></td>
                     </tr>
                     <tr>
-                        <td>cau1</td>
-                        <td>cau2</td>
+                        <td>lấp ló</td>
+                        <td class="percent"></td>
                     </tr>
                     <tr>
-                        <td>cau1</td>
-                        <td>cau2</td>
+                        <td>no nê</td>
+                        <td class="percent"></td>
                     </tr>
                     <tr>
-                        <td>cau1</td>
-                        <td>cau2</td>
+                        <td>lạ lẫm</td>
+                        <td class="percent"></td>
                     </tr>
                     <tr>
-                        <td>cau1</td>
-                        <td>cau2</td>
+                        <td>nôn nóng</td>
+                        <td class="percent"></td>
                     </tr>
                 </table>
             </div>
             <div class="modal-footer">
-                <button class="home">
+                <button class="home" onclick="navigateTo('../courses.html')">
                     <i class="fas fa-home"></i>Về trang chủ
                 </button>
-                <button class="continue">
+                <button class="continue" onclick="navigateTo('lists.html')">
                     <i class="fas fa-microphone"></i>Luyện nói
                 </button>
             </div>
@@ -92,6 +92,11 @@
     </div>
 
     <script src="ln.js"></script>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 
 </html>
