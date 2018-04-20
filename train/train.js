@@ -1,17 +1,12 @@
 window.onload = function() {
     let questionCount = 0;
     let questions = ['lấp ló', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
-    let result = false;
-    let resultInPercent = [0, 0, 0, 0, 0];
-    let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
     let good = [],
         goodCount = 0;
     let bad = [],
         badCount = 0;
     let temp;
-    let obj = new Object();
-    let tempArray = [0];
-    let data = [];
+    
 
     const brain = require('brain.js');
     const net = new brain.NeuralNetwork();
@@ -21,8 +16,6 @@ window.onload = function() {
     const next = document.querySelector('.next');
     const back = document.querySelector('.back');
     const text = document.querySelector('.text');
-    const modal = document.querySelector('#simpleModal');
-    const tds = document.querySelectorAll('.percent');
     const reg = new webkitSpeechRecognition();
 
     const train = document.querySelector('.train');
@@ -40,10 +33,8 @@ window.onload = function() {
             if (event.results[i].isFinal) {
                 console.log(transcript);
                 console.log(questions[questionCount]);
-                if (transcript == questions[questionCount]) {
                     reg.stop();
-                    temp = event.results[i][0].confidence.toFixed(4);
-                }
+                    temp = event.results[i][0].confidence.toFixed(6);
             }
         }
     };
@@ -84,45 +75,33 @@ window.onload = function() {
     });
 
     function trainTheML() {
-        net.train([
-            { input: [0.91], output: [1] },
-            { input: [0.92], output: [1] },
-            { input: [0.93], output: [1] },
-            { input: [0.94], output: [1] },
-            { input: [0.96], output: [1] },
-            { input: [0.98], output: [1] },
-
-            { input: [0.82], output: [0] },
-            { input: [0.83], output: [0] },
-            { input: [0.84], output: [0] },
-            { input: [0.86], output: [0] },
-            { input: [0.88], output: [0] },
-            { input: [0.89], output: [0] },
-        ]);
-
-        var output = net.run([0.9]); // [0.987]
-        console.log(output);
-
+        let data = [];
         for (let i = 0; i < goodCount; i++) {
-            tempArray[0] = good[i];
-            console.log(tempArray);
-            obj.input = tempArray;
+            let obj = new Object();
+            obj.input = [good[i]];
             obj.output = [1];
             console.log(obj);
             data[i] = obj;
+            console.log(obj);
         }
         for (let i = 0; i < badCount; i++) {
-            tempArray[0] = bad[i];
-            console.log(tempArray);
-            obj.input = tempArray;
+            let obj = new Object();
+            obj.input = [bad[i]];
             obj.output = [0];
             console.log(obj);
             data[i + goodCount] = obj;
+            console.log(obj);
         }
+        let x;
         console.log(data);
         net.train(data);
-        var x = net.run([0.96]);
-        console.log(x);
+        for(let i=1;i<100;i++){
+          x = net.run([i/100]);
+          if(x>=0.87){
+            console.log(i);
+            break;
+          }
+        }
     }
 
     function nextQuestion() {
