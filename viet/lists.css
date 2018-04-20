@@ -14,7 +14,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
-    height: 100vh;
+    min-height: 100vh;
     background: #00f260; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to bottom right,
@@ -57,9 +57,9 @@ a {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    grid-template-columns: repeat(auto-fit, 350px);
-    grid-template-rows: repeat(2, 200px);
-    grid-gap: 10px 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    grid-gap: 20px 10px;
 }
 .item {
     display: grid;
@@ -79,4 +79,17 @@ a {
     font-weight: 700;
     grid-row: 2 / 3;
     text-align: center;
+}
+.item > p{
+    grid-row: 3 / 4;
+    text-align: center;
+    font-size: 18px;
+}
+
+.item > p > i{
+    margin: 0 5px;
+}
+
+.sentence{
+    grid-column: span 2;
 }

@@ -8,36 +8,78 @@
     <title>Luyện nói</title>
     <link rel="stylesheet" href="lists.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:500&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
 </head>
 
 <body>
-        <ul class="nav">
-                <li>
-                    <a href="">Trang chủ</a>
-                </li>
-                <li>
-                    <a href="../courses.html">Luyện nói</a>
-                </li>
-                <li>
-                    <a href="../train/train.html">Training mode</a>
-                </li>
-            </ul>
+    <ul class="nav">
+        <li>
+            <a href="">Trang chủ</a>
+        </li>
+        <li>
+            <a href="../courses.html">Luyện nói</a>
+        </li>
+        <li>
+            <a href="../train/train.html">Training mode</a>
+        </li>
+    </ul>
     <div class="wrapper">
         <div class="item" onclick="navigateTo('ln.html')">
             <div class="title">l / n</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 1
+                <i class="fas fa-star fa-xs"></i>
+            </p>
+        </div>
+        <div class="item">
+            <div class="title">l / n</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 2
+                <i class="fas fa-star fa-xs"></i>
+            </p>
         </div>
         <div class="item">
             <div class="title">tr / ch</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 1
+                <i class="fas fa-star fa-xs"></i>
+            </p>
         </div>
         <div class="item">
-            <div class="title">r / d</div>
+            <div class="title">tr / ch</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 2
+                <i class="fas fa-star fa-xs"></i>
+            </p>
         </div>
         <div class="item">
             <div class="title">s / x</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 1
+                <i class="fas fa-star fa-xs"></i>
+            </p>
         </div>
+        <div class="item">
+            <div class="title">s / x</div>
+            <p>
+                <i class="fas fa-star fa-xs"></i>mức 2
+                <i class="fas fa-star fa-xs"></i>
+            </p>
+        </div>
+        <div class="item sentence">
+            <div class="title">câu (l / n)</div>
+        </div>
+        <div class="item sentence">
+            <div class="title">câu (tr / ch)</div>
+        </div>
+        <div class="item sentence">
+            <div class="title">câu (s / x)</div>
+        </div>
+
     </div>
     <script>
-        function navigateTo(url){
+        function navigateTo(url) {
             window.location.href = url;
         }
     </script>
