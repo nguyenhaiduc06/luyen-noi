@@ -8,10 +8,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
-    height: 100vh;
+    min-height: 100vh;
     background: #22c1c3;
-    background: -webkit-linear-gradient(to bottom right, #fdbb2d, #22c1c3);
-    background: linear-gradient(to bottom right, #fdbb2d, #22c1c3);
+    background: -webkit-linear-gradient(to top left, #fdbb2d, #22c1c3);
+    background: linear-gradient(to top left, #fdbb2d, #22c1c3);
 }
 /*Navigator*/
 .nav {
