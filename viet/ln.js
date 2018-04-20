@@ -1,6 +1,7 @@
 window.onload = function() {
     let questionCount = 0;
     let questions = ['lung linh', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
+    let result = false;
     const button = document.querySelector('#button');
     const steps = document.querySelectorAll('li');
     const next = document.querySelector('.next');
@@ -25,16 +26,28 @@ window.onload = function() {
                     if (
                         (event.results[i][0].confidence * 100).toFixed(2) >= 96
                     ) {
-                        console.log(true);
+                        result = true;
                     } else {
-                        console.log(false);
+                        result = false;
                     }
                     break;
                 } else {
                     reg.stop();
-                    console.log(false);
+                    result = false;
                 }
             }
+        }
+    };
+    reg.onend = function() {
+        console.log('stopped');
+        if (result == true) {
+            returnToOrginalState();
+            text.classList.add('true');
+            steps[questionCount].classList.toggle('success');
+        } else {
+            returnToOrginalState();
+            text.classList.add('false');
+            steps[questionCount].classList.toggle('danger');
         }
     };
 
@@ -46,11 +59,7 @@ window.onload = function() {
     });
 
     next.addEventListener('click', function() {
-        if (questionCount < 4) {
-            nextQuestion();
-        } else {
-            openModal();
-        }
+        nextQuestion();
     });
     back.addEventListener('click', function() {
         if (questionCount > 0) {
@@ -59,23 +68,39 @@ window.onload = function() {
     });
 
     function nextQuestion() {
-        steps[questionCount].classList.toggle('active');
-        questionCount++;
-        steps[questionCount].classList.toggle('active');
-        text.innerHTML = questions[questionCount];
+        if (questionCount < 4) {
+            questionCount++;
+            returnToOrginalState();
+            steps[questionCount].classList.add('active');
+            text.innerHTML = questions[questionCount];
+        } else {
+            openModal();
+        }
     }
 
     function preQuestion() {
-        steps[questionCount].classList.toggle('active');
         questionCount--;
-        steps[questionCount].classList.toggle('active');
+        returnToOrginalState();
+        steps[questionCount].classList.add('active');
         text.innerHTML = questions[questionCount];
     }
 
-    steps[questionCount].classList.toggle('active');
+    steps[questionCount].classList.add('active');
     text.innerHTML = questions[questionCount];
 
     function openModal() {
         modal.style.display = 'block';
+    }
+
+    function returnToOrginalState() {
+        button.classList.remove('fa-redo-alt');
+        button.classList.remove('fa-spinner');
+        button.classList.remove('fa-pulse');
+        button.classList.add('fa-microphone');
+        steps[questionCount].classList.remove('active');
+        steps[questionCount].classList.remove('success');
+        steps[questionCount].classList.remove('danger');
+        text.classList.remove('true');
+        text.classList.remove('false');
     }
 };

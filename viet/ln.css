@@ -80,18 +80,25 @@ body {
 .progressbar li::after {
     content: '';
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: 2px;
     background: rgba(0, 0, 0, 0.4);
-    top: 15px;
-    left: -45%;
+    /* top: 15px; */
+    left: -50%;
     z-index: -1;
 }
 .progressbar li:first-child::after {
     content: none;
 }
 .progressbar li.active::before {
-    background-color: rgba(46, 216, 40, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.9)
+}
+.progressbar li.danger::before {
+    background-color: rgba(216, 40, 40, 0.9);
+}
+.progressbar li.success::before {
+    background-color: rgba(46, 216, 40, 0.8);
 }
 .progressbar li {
     font-family: monospace;
@@ -102,6 +109,12 @@ body {
     font-family: handwrite;
     font-size: 128px;
     text-align: center;
+}
+.true{
+    color: rgba(46, 216, 40, 0.7);
+}
+.false{
+    color: rgba(216, 40, 40, 0.9);
 }
 .controls {
     grid-row: 3 / 4;
