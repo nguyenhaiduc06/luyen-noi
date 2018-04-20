@@ -17,7 +17,7 @@ window.onload = function() {
     const net = new brain.NeuralNetwork();
 
     const button = document.querySelector('#button');
-    const steps = document.querySelectorAll('li');
+    const steps = document.querySelectorAll('.step');
     const next = document.querySelector('.next');
     const back = document.querySelector('.back');
     const text = document.querySelector('.text');
