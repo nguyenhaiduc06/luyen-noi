@@ -74,6 +74,14 @@
                 <i class="fas fa-angle-right fa-5x"></i>
             </div>
         </div>
+        <div class="settings">
+                <p>Âm lượng</p>
+                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="volume">
+                <p>Tốc độ</p>
+                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="rate">
+                <p>Ngữ điệu</p>
+                <input type="range" min="0" max="2" value="0.5" step="0.1" class="slider" id="pitch">
+            </div>
     </div>
 
     <div id="simpleModal" class="modal">
@@ -119,7 +127,7 @@
             </div>
         </div>
     </div>
-    <script src="../rs.speech.js"></script>
+    
     <script src="chi.js"></script>
     <script>
         function navigateTo(url) {

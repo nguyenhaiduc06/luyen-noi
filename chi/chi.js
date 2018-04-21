@@ -14,11 +14,15 @@ window.onload = function() {
     const tds = document.querySelectorAll('.percent');
     const word = document.querySelectorAll('.word');
     const reg = new webkitSpeechRecognition();
+    const msg = new SpeechSynthesisUtterance();
 
-    speechRs.speechinit('Google 粤語（香港）', function(e) {});
-
+    msg.lang='zh-CN';
     text.addEventListener('click', function() {
-        speechRs.speak(text.innerHTML, function() {}, false);
+        msg.text=text.innerHTML;
+        msg.volume = document.querySelector('#volume').value;
+        msg.rate = document.querySelector('#rate').value;
+        msg.pitch = document.querySelector('#pitch').value;
+        window.speechSynthesis.speak(msg);
     });
 
     reg.continuous = true;

@@ -150,6 +150,45 @@ a {
     cursor: pointer;
 }
 
+.settings{
+    text-align: center;
+}
+
+.settings > input{
+    width: 40%;
+}
+
+.settings > p{
+    margin: 20px auto 5px auto;
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-radius: 3px;
+}
+
+.slider:hover{
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 .modal {
     display: none;
     position: fixed;
