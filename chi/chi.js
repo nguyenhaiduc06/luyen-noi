@@ -1,7 +1,7 @@
 window.onload = function() {
     let questionCount = 0;
-    let questions = ['good morning', 'hello', 'hi', 'thank you', 'goodbye'];
-    const percentToCompare = [90, 90, 85, 90, 90];
+    let questions = ['你好', '谢谢', '你好吗', '再见', '你叫什么名字'];
+    const percentToCompare = [90,90,85,90,90];
     let result = false;
     let resultInPercent = [0, 0, 0, 0, 0];
     let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
@@ -15,7 +15,7 @@ window.onload = function() {
     const word = document.querySelectorAll('.word');
     const reg = new webkitSpeechRecognition();
 
-    speechRs.speechinit('Google UK English Female', function(e) {});
+    speechRs.speechinit('Google 粤語（香港）', function(e) {});
 
     text.addEventListener('click', function() {
         speechRs.speak(text.innerHTML, function() {}, false);
@@ -23,7 +23,7 @@ window.onload = function() {
 
     reg.continuous = true;
     reg.interimResults = true;
-    reg.lang = 'en-US';
+    reg.lang = 'cmn-Hans-CN';
     reg.onresult = function(event) {
         console.log(event);
         var interimTranscripts = '';
@@ -32,14 +32,10 @@ window.onload = function() {
             if (event.results[i].isFinal) {
                 console.log(transcript.toLowerCase());
                 console.log(questions[questionCount].toLowerCase());
-                if (
-                    transcript.toLowerCase() ==
-                    questions[questionCount].toLowerCase()
-                ) {
+                if (transcript.toLowerCase() == questions[questionCount].toLowerCase()) {
                     reg.stop();
                     if (
-                        (event.results[i][0].confidence * 100).toFixed(2) >=
-                        percentToCompare[questionCount]
+                        (event.results[i][0].confidence * 100).toFixed(2) >= percentToCompare[questionCount]
                     ) {
                         result = true;
                         resultInPercent[questionCount] = (
@@ -65,12 +61,12 @@ window.onload = function() {
     reg.onend = function() {
         console.log('stopped');
         if (result == true) {
-            status[questionCount] = 'true';
+            status[questionCount]='true';
             returnToOrginalState();
             text.classList.add('true');
             steps[questionCount].classList.add('success');
         } else {
-            status[questionCount] = 'false';
+            status[questionCount]='false';
             returnToOrginalState();
             text.classList.add('false');
             steps[questionCount].classList.add('danger');
@@ -120,18 +116,21 @@ window.onload = function() {
 
     function openModal() {
         for (let i = 0; i < 5; i++) {
-            word[i].innerHTML = questions[i];
-            if (status[i] == 'true') {
+            word[i].innerHTML=questions[i];
+            if(status[i]=='true'){
                 tds[i].innerHTML = resultInPercent[i] + '%';
                 tds[i].classList.add('true');
-            } else {
-                if (status[i] == 'false') {
-                    tds[i].innerHTML = 'chưa đúng';
+            }
+            else{
+                if(status[i]=='false'){
+                    tds[i].innerHTML = "chưa đúng";
                     tds[i].classList.add('false');
-                } else {
-                    tds[i].innerHTML = '---chưa làm---';
+                }
+                else{
+                    tds[i].innerHTML = "---chưa làm---";
                 }
             }
+            
         }
         modal.style.display = 'block';
     }

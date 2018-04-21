@@ -14,6 +14,13 @@ window.onload = function() {
     const tds = document.querySelectorAll('.percent');
     const word = document.querySelectorAll('.word');
     const reg = new webkitSpeechRecognition();
+
+    speechRs.speechinit('Google 한국의', function(e) {});
+
+    text.addEventListener('click', function() {
+        speechRs.speak(text.innerHTML, function() {}, false);
+    });
+
     reg.continuous = true;
     reg.interimResults = true;
     reg.lang = 'ko-KR';
