@@ -6,7 +6,6 @@ window.onload = function() {
     let bad = [],
         badCount = 0;
     let temp;
-    
 
     const brain = require('brain.js');
     const net = new brain.NeuralNetwork();
@@ -21,20 +20,20 @@ window.onload = function() {
     const train = document.querySelector('.train');
     const trainCorrect = document.querySelector('.trainCorrect');
     const trainWrong = document.querySelector('.trainWrong');
+    const trainStart = document.querySelector('.trainStart');
 
     reg.continuous = true;
     reg.interimResults = true;
     reg.lang = 'vi-VN';
     reg.onresult = function(event) {
         console.log(event);
-        var interimTranscripts = '';
         for (var i = event.resultIndex; i < event.results.length; i++) {
             var transcript = event.results[i][0].transcript;
             if (event.results[i].isFinal) {
                 console.log(transcript);
                 console.log(questions[questionCount]);
-                    reg.stop();
-                    temp = event.results[i][0].confidence.toFixed(6);
+                reg.stop();
+                temp = event.results[i][0].confidence.toFixed(6);
             }
         }
     };
@@ -49,12 +48,18 @@ window.onload = function() {
         good[goodCount] = Number(temp);
         goodCount++;
         console.log('correct');
+        train.style.display = 'none';
     });
 
     trainWrong.addEventListener('click', function() {
         bad[badCount] = Number(temp);
         badCount++;
         console.log('wrong');
+        train.style.display = 'none';
+    });
+
+    trainStart.addEventListener('click', function() {
+        trainTheML();
     });
 
     button.addEventListener('click', function() {
@@ -66,18 +71,20 @@ window.onload = function() {
 
     next.addEventListener('click', function() {
         nextQuestion();
-        trainTheML();
     });
+
     back.addEventListener('click', function() {
-        if (questionCount > 0) {
-            preQuestion();
-        }
+        preQuestion();
     });
+
+    steps[questionCount].classList.add('active');
+    text.innerHTML = questions[questionCount];
+    train.style.display = 'none';
 
     function trainTheML() {
         let data = [];
         for (let i = 0; i < goodCount; i++) {
-            let obj = new Object();
+            let obj = {};
             obj.input = [good[i]];
             obj.output = [1];
             console.log(obj);
@@ -85,7 +92,7 @@ window.onload = function() {
             console.log(obj);
         }
         for (let i = 0; i < badCount; i++) {
-            let obj = new Object();
+            let obj = {};
             obj.input = [bad[i]];
             obj.output = [0];
             console.log(obj);
@@ -95,55 +102,31 @@ window.onload = function() {
         let x;
         console.log(data);
         net.train(data);
-        for(let i=1;i<100;i++){
-          x = net.run([i/100]);
-          if(x>=0.87){
-            console.log(i);
-            break;
-          }
+        for (let i = 1; i < 100; i++) {
+            x = net.run([i / 100]);
+            if (x >= 0.87) {
+                console.log(i);
+                break;
+            }
         }
     }
 
     function nextQuestion() {
         if (questionCount < 4) {
-            text.classList.remove('true');
-            text.classList.remove('false');
             steps[questionCount].classList.remove('active');
             questionCount++;
             steps[questionCount].classList.add('active');
             text.innerHTML = questions[questionCount];
-        } else {
-            openModal();
         }
     }
 
     function preQuestion() {
-        text.classList.remove('true');
-        text.classList.remove('false');
-        steps[questionCount].classList.remove('active');
-        questionCount--;
-        steps[questionCount].classList.add('active');
-        text.innerHTML = questions[questionCount];
-    }
-
-    steps[questionCount].classList.add('active');
-    text.innerHTML = questions[questionCount];
-
-    function openModal() {
-        for (let i = 0; i < 5; i++) {
-            if (status[i] == 'true') {
-                tds[i].innerHTML = resultInPercent[i] + '%';
-                tds[i].classList.add('true');
-            } else {
-                if (status[i] == 'false') {
-                    tds[i].innerHTML = 'chưa đúng';
-                    tds[i].classList.add('false');
-                } else {
-                    tds[i].innerHTML = '---chưa làm---';
-                }
-            }
+        if (questionCount > 0) {
+            steps[questionCount].classList.remove('active');
+            questionCount--;
+            steps[questionCount].classList.add('active');
+            text.innerHTML = questions[questionCount];
         }
-        modal.style.display = 'block';
     }
 
     function returnToOrginalState() {
@@ -151,9 +134,5 @@ window.onload = function() {
         button.classList.remove('fa-spinner');
         button.classList.remove('fa-pulse');
         button.classList.add('fa-microphone');
-        steps[questionCount].classList.remove('success');
-        steps[questionCount].classList.remove('danger');
-        text.classList.remove('true');
-        text.classList.remove('false');
     }
 };

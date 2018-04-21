@@ -141,9 +141,8 @@ a {
     cursor: pointer;
 }
 .train {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr;
-    justify-content: center;
+    display: none;
+    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
     height: 50px;
     grid-gap: 10px;
 }
@@ -156,8 +155,12 @@ a {
 .trainCorrect {
     grid-column: 2 / 3;
 }
-.trainWrong {
+.train-item > p {
     grid-column: 3 / 4;
+    font-weight: 700;
+}
+.trainWrong {
+    grid-column: 4 / 5;
 }
 .modal {
     display: none;
