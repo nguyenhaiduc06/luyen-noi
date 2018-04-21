@@ -54,11 +54,12 @@ a {
 }
 .item {
     display: grid;
-    grid-template-rows: 5px auto 5px auto 5px;
-    grid-template-columns: 5px auto 5px;
+    grid-template-rows: 10px auto 10px auto 10px;
+    grid-template-columns: 10px auto 10px;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: 200ms;
+    border-radius: 20px;
 }
 .item:hover {
     background: rgba(255, 255, 255, 0.8);
@@ -78,5 +79,6 @@ a {
 }
 .item > img {
     max-width: 100%;
+    border-radius: 20px;
 }
 /*End wrapper*/
