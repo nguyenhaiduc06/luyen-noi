@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'handwrite';
-    src: url('../font.ttf');
+    src: url('font.ttf');
 }
 
 html {
