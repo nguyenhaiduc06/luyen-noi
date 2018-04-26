@@ -127,6 +127,10 @@ a {
     text-align: center;
     cursor: pointer;
     /* -webkit-text-stroke: 2px rgba(0, 0, 0, 0.75); */
+    word-wrap: break-word;
+}
+.smaller{
+    font-size: 72px;
 }
 
 .true {
