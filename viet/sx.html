@@ -12,27 +12,35 @@
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:500&amp;subset=latin-ext,vietnamese" rel="stylesheet">
     <style>
         body {
-            background: #36D1DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top left, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+            background: #ff5f6d;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient( to bottom right,
+            #ecb669,
+            #ff5f6d);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom right, #ecb669, #ff5f6d);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
 
         .modal-header {
-            background: #c2e59c;
+            background: #ff5f6d;
             /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);
+            background: -webkit-linear-gradient( to left,
+            #ecb669,
+            #ff5f6d);
             /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #64b3f4, #c2e59c);
+            background: linear-gradient( to left,
+            #ecb669,
+            #ff5f6d);
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
 
         .modal-footer>button:hover {
-            background: rgba(97, 178, 244, 0.8);
+            background: rgba(255, 141, 96, 0.8);
         }
 
         th {
-            background: rgba(97, 178, 244, 0.8);
+            background: rgba(255, 141, 96, 0.8);
         }
     </style>
 
@@ -60,7 +68,7 @@ background: linear-gradient(to top left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge
                 <li class="step"></li>
             </ul>
         </div>
-        <div class="text smaller"></div>
+        <div class="text"></div>
         <div class="controls">
             <div class="back">
                 <i class="fas fa-angle-left fa-5x"></i>
@@ -118,7 +126,7 @@ background: linear-gradient(to top left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge
         </div>
     </div>
 
-    <script src="sln.js"></script>
+    <script src="sx.js"></script>
     <script>
         function navigateTo(url) {
             window.location.href = url;

@@ -1,6 +1,7 @@
 window.onload = function() {
     let questionCount = 0;
-    let questions = ['ăn kĩ no lâu, cày sâu tốt lúa', 'con lươn nó luồn qua lườn em', 'lúa nếp là lúa nếp làng, lúa lên lớp lớp lòng nàng lâng lâng', 'nói năng nên luyện luôn luôn, lời nói lưu loát luyện luôn lúc này', 'lính lệ leo lên lầu lấy lưỡi lê, lấy lộn lại leo lên lấy lại'];
+    let questions = ['xa xỉ', 'xanh xao', 'xác xơ', 'xa xôi', 'xào xạc'];
+    const percentToCompare = [85,85,85,85,85];
     let result = false;
     let resultInPercent = [0, 0, 0, 0, 0];
     let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
@@ -11,8 +12,8 @@ window.onload = function() {
     const text = document.querySelector('.text');
     const modal = document.querySelector('#simpleModal');
     const tds = document.querySelectorAll('.percent');
-    const word = document.querySelectorAll('.word');
     const reg = new webkitSpeechRecognition();
+    const word = document.querySelectorAll(".word");
     reg.continuous = true;
     reg.interimResults = true;
     reg.lang = 'vi-VN';
@@ -27,7 +28,7 @@ window.onload = function() {
                 if (transcript.toLowerCase() == questions[questionCount].toLowerCase()) {
                     reg.stop();
                     if (
-                        (event.results[i][0].confidence * 100).toFixed(2) >= 96
+                        (event.results[i][0].confidence * 100).toFixed(2) >= percentToCompare[questionCount]
                     ) {
                         result = true;
                         resultInPercent[questionCount] = (
@@ -108,7 +109,7 @@ window.onload = function() {
 
     function openModal() {
         for (let i = 0; i < 5; i++) {
-            word[i].innerHTML=questions[i];
+            word[i].innerHTML = questions[i];
             if(status[i]=='true'){
                 tds[i].innerHTML = resultInPercent[i] + '%';
                 tds[i].classList.add('true');
