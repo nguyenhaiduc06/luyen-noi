@@ -1,7 +1,8 @@
 window.onload = function() {
     let questionCount = 0;
     let questions = ['lung linh', 'lấp ló', 'no nê', 'lạ lẫm', 'nôn nóng'];
-    const percentToCompare = [98,97,92];
+    let isSpeaking = false;
+    const percentToCompare = [98,97,84, 90, 90];
     let result = false;
     let resultInPercent = [0, 0, 0, 0, 0];
     let status = ['not done', 'not done', 'not done', 'not done', 'not done'];
@@ -51,6 +52,7 @@ window.onload = function() {
         }
     };
     reg.onend = function() {
+        isSpeaking=false;
         console.log('stopped');
         if (result == true) {
             status[questionCount]='true';
@@ -65,11 +67,23 @@ window.onload = function() {
         }
     };
 
+    reg.onstart=function(){
+        isSpeaking=true;
+        setTimeout(function(){
+            reg.stop();
+        }, 5000);
+    };
+
     button.addEventListener('click', function() {
         button.classList.toggle('fa-microphone');
         button.classList.toggle('fa-spinner');
         button.classList.toggle('fa-pulse');
-        reg.start();
+        if(isSpeaking){
+            reg.stop();
+        }
+        else{
+            reg.start();
+        }
     });
 
     next.addEventListener('click', function() {
