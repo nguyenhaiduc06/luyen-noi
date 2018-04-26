@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyện nói</title>
+    <link rel="stylesheet" href="../exercise.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:500&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <style>
+        body {
+            background: #ff5f6d;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient( to bottom right,
+            #ecb669,
+            #ff5f6d);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom right, #ecb669, #ff5f6d);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .modal-header {
+            background: #ff5f6d;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient( to left,
+            #ecb669,
+            #ff5f6d);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient( to left,
+            #ecb669,
+            #ff5f6d);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .modal-footer>button:hover {
+            background: rgba(255, 141, 96, 0.8);
+        }
+
+        th {
+            background: rgba(255, 141, 96, 0.8);
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">Trang chủ</a>
+        </li>
+        <li>
+            <a href="../courses.html">Luyện nói</a>
+        </li>
+        <li>
+            <a href="../train/train.html">Training mode</a>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <div class="container">
+            <ul class="progressbar">
+                <li class="step"></li>
+                <li class="step"></li>
+                <li class="step"></li>
+                <li class="step"></li>
+                <li class="step"></li>
+            </ul>
+        </div>
+        <div class="text"></div>
+        <div class="controls">
+            <div class="back">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </div>
+            <div class="button">
+                <i class="fas fa-microphone fa-7x" id="button"></i>
+            </div>
+            <div class="next">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Bạn đã hoàn thành bài học</h2>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <th>Từ</th>
+                        <th>Mức độ đúng</th>
+                    </tr>
+                    <tr>
+                        <td class="word"></td>
+                        <td class="percent"></td>
+                    </tr>
+                    <tr>
+                        <td class="word"></td>
+                        <td class="percent"></td>
+                    </tr>
+                    <tr>
+                        <td class="word"></td>
+                        <td class="percent"></td>
+                    </tr>
+                    <tr>
+                        <td class="word"></td>
+                        <td class="percent"></td>
+                    </tr>
+                    <tr>
+                        <td class="word"></td>
+                        <td class="percent"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="home" onclick="navigateTo('../courses.html')">
+                    <i class="fas fa-home"></i>Về trang chủ
+                </button>
+                <button class="continue" onclick="navigateTo('lists.html')">
+                    <i class="fas fa-microphone"></i>Luyện nói
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="trch.js"></script>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>
